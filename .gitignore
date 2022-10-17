@@ -1,2 +1,244 @@
 Github Test
 
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
+import math
+import pandas as pd
+import random
+
+file='us-counties-2022.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+recent=dat[(dat['date'] =='2022-10-16')]
+recent=recent[(recent['state'] =='Pennsylvania')]
+print(recent)
+
+plt.figure(1)
+deaths=np.array(recent['deaths'])
+plt.hist(deaths, bins=50);
+plt.xlabel("deaths");
+plt.ylabel("Count");
+
+t = np.zeros(1000);
+for m in np.arange(0,1000,1):
+    tmp = random.sample(list(deaths),5); 
+    mu = np.mean(deaths)
+    t[m] = (np.mean(tmp)-mu)/np.std(tmp)*np.sqrt(5)
+
+plt.figure(2)
+plt.hist(t, bins = 100);
+plt.xlabel("t statistic");
+plt.ylabel("count");
+
+
+
+
+file='Poverty Allegheny County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+pov=np.array(dat.iloc[0][5])
+print(pov)
+
+file='Poverty Washington County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Westmoreland County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Beaver County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Butler County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Philadelphia County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Bucks County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Delaware County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Chester County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+file='Poverty Montgomery County.csv'
+dat=pd.read_csv(file, header=0)
+pov=np.append([pov],[dat.iloc[0][5]])
+print(pov)
+
+
+plt.figure(1)
+plt.hist(pov, bins=50);
+plt.xlabel("Percent Below Poverty Level %");
+plt.ylabel("Count");
+
+
+file='Poverty Allegheny County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Washington County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Westmoreland County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Beaver County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Butler County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Philadelphia County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Bucks County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Delaware County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Chester County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+file='Poverty Montgomery County.csv'
+dat=pd.read_csv(file, header=0)
+# print(dat)
+
+male=np.array(dat.iloc[12][1])
+female=np.array(dat.iloc[13][1])
+print(male)
+print(female)
+
+male=(male/(male+female)*100)
+female=(female/(male+female)*100)
+print(male)
+print(female)
+
+plt.figure(1)
+plt.hist(male, bins=50);
+plt.xlabel("Percent Male %");
+plt.ylabel("Count");
+
+plt.figure(2)
+plt.hist(female, bins=50);
+plt.xlabel("Percent Female %");
+plt.ylabel("Count");
